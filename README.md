@@ -1,3 +1,3 @@
-# NeuCube Python
+# NeuCube
 
-This repository contains python implemented code for NeuCube that can be used for EEG data classification.
+This repository contains python implemented code for NeuCube that can be used to model spatio-temporal data.
