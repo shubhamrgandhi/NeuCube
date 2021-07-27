@@ -1,4 +1,3 @@
-# Using NeuCube for EEG Data Classification
-This repository contains python implemented code for NeuCube that can be used for EEG data classification.
+# NeuCube Python
 
-Will be updated after publishing paper
+This repository contains python implemented code for NeuCube that can be used for EEG data classification.
