@@ -59,12 +59,14 @@ class NeuCube():
 
     def _initialize_structure(self):
         print(os.getcwd())
+
         # Initializing neuron positions
         if self.coordinates.lower() == 'talairach':
             self.reservoir_neuron_positions = pd.read_csv(
                 'assets/talairach_brain_coordinates.csv', header=None).values
         else:
             self.reservoir_neuron_positions = self.coordinates
+
         # Number of reservoir neurons
         self.n_reservoir = self.reservoir_neuron_positions.shape[0]
 
@@ -82,16 +84,18 @@ class NeuCube():
             self.input_neuron_positions = koessler_mapping[self.electrodes].T.values
         else:
             self.input_neuron_positions = self.mapping
+
         # Number of input neurons
         self.n_input = self.input_neuron_positions.shape[0]
 
         # Calculating distance matrix between every pair of reservoir neuron
         reservoir_dist = sp.spatial.distance.squareform(sp.spatial.distance.pdist(
             self.reservoir_neuron_positions))
+
         # Normalizing distance
         reservoir_dist /= np.max(reservoir_dist)
 
-        # # Calculating distance between input and reservoir neurons
+        # Calculating distance between input and reservoir neurons
         input_dist = sp.spatial.distance.cdist(
             self.input_neuron_positions, self.reservoir_neuron_positions)
         # Normalizing distance (delibarately using same max dist for normalization)
